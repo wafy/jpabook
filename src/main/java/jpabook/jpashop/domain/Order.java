@@ -15,6 +15,11 @@ public class Order {
     @Column(name = "member_id")
     private Long memberId;
 
+    @Enumerated(value = EnumType.STRING)
+    private OrderStatus status;
+
+
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
     public Long getId() {
@@ -48,10 +53,4 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
-
-    @Enumerated(value = EnumType.STRING)
-    private OrderStatus status;
-
-
-
 }
