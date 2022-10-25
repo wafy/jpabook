@@ -21,11 +21,17 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
+
     @Enumerated(value = EnumType.STRING)
     private OrderStatus status;
 
     @Column(name = "order_date")
     private LocalDateTime orderDate;
+
+
 
     public Long getId() {
         return id;
